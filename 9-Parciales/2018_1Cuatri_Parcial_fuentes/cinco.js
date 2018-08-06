@@ -10,10 +10,10 @@ function mostrar()
     while(planeta != "mercurio" && planeta != "marte"&& planeta != "la tierra" && planeta != "venus" && planeta != "jupiter" && planeta != "pluton")
     {
         planeta=prompt("No es un planeta. Ingrese un planeta correcto");
-        
+    }
         switch(planeta)
 
-        {
+    {
         case"la tierra":
         alert("Aca vivimos");
         break;
@@ -23,7 +23,7 @@ function mostrar()
         break;
         
         case"mercurio":
-        alert("Aca hace mas calor");
+        alert('Aca hace mas calor');
         break;
                         
         case"venus":              
@@ -41,10 +41,10 @@ function mostrar()
         case"pluton":
         alert("Aca hace mas frio");
         break;                          
-        }
-    
-    
     }
+    
+    
+    
 
 
 
