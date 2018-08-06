@@ -13,10 +13,10 @@ function mostrar()
     var acumuladorDePesos=0
     var resto;
     var pesoMaximoDelBajoCero;
-    var pesoMinimiDelBajoCero;
+    var pesoMinimoDelBajoCero;
     var cantidadDePesos=0
     var promedioDePesos;
-    var bandera2=0;
+    //var bandera2=0;
 
 
     
@@ -37,11 +37,13 @@ function mostrar()
             while(peso<1 || peso >1000)
             {
                 peso=prompt('Peso erroneo. Ingrese un peso entre 1 y 1000');
+                peso=parseInt(peso);
             }
 
             while(temperatura<-30 | temperatura>30)
             {
                 temperatura=prompt('Temperatura erronea. Ingrese entre -30 y 30');
+                temperatura= parseInt(temperatura);
 
             }
             if(resto==0)
@@ -62,27 +64,31 @@ function mostrar()
                 nombreDelMasPesado=nombreDelAnimal;
             }
             
-            if(bandera2==0 && temperatura<0)
-            {
-                pesoMaximoDelBajoCero=peso;
-                pesoMinimiDelBajoCero=peso;
-                bandera2++
-            }
-            if(peso>pesoMaximoDelBajoCero)
-            {
-                pesoMaximoDelBajoCero=peso;
-
-            }
-            if(peso<pesoMinimiDelBajoCero)
-            {
-                pesoMinimiDelBajoCero=peso;
-            }
-            
             if(temperatura<0)
+            {
+                cantidadTemperaturasNegativas++
+
+                if(cantidadTemperaturasNegativas==1)
+                {
+                pesoMaximoDelBajoCero=peso;
+                pesoMinimoDelBajoCero=peso;
+                cantidadTemperaturasNegativas=1
+                }else if(peso>pesoMaximoDelBajoCero)
+                {
+                    pesoMaximoDelBajoCero=peso;
+
+                }
+                if(peso<pesoMinimoDelBajoCero)
+                {
+                    pesoMinimoDelBajoCero=peso;
+                }
+ 
+            }
+            /*if(temperatura<0)
             {               
                 cantidadTemperaturasNegativas++
 
-            }
+            }*/
           
             /* if(cantidadTemperaturasNegativas=0)
             {
@@ -136,7 +142,7 @@ function mostrar()
     document.write('El animal mas pesado es '+nombreDelMasPesado+ ' y su habitat se mantiene a '+temperaturaDelMaspesado);
     document.write('La cantidad de animales que viven bajo cero es ' +cantidadTemperaturasNegativas);
     document.write('El promedio de peso de los animales es '+(acumuladorDePesos/cantidadDePesos));
-    document.write('El peso maximo y el minimo de los animales que viven bajo cero son '+pesoMaximoDelBajoCero+ ' y ' +pesoMinimiDelBajoCero+ '  respectivamente');
+    document.write('El peso maximo y el minimo de los animales que viven bajo cero son '+pesoMaximoDelBajoCero+ ' y ' +pesoMinimoDelBajoCero+ '  respectivamente');
     
 
 
